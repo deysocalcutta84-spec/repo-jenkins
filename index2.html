@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Docker on ECS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 28px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+      gap: 60px;
+    }
+
+    .box {
+      width: 120px;
+      height: 120px;
+      background: #1e293b;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .box img {
+      width: 60px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .label {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* Arrow animation */
+    .arrow {
+      width: 60px;
+      height: 4px;
+      background: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .arrow::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 4px;
+      background: #38bdf8;
+      animation: move 2s linear infinite;
+    }
+
+    @keyframes move {
+      0% { left: -20px; }
+      100% { left: 100%; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .message {
+      margin-top: 80px;
+      font-size: 22px;
+      color: #38bdf8;
+      animation: fadeIn 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Docker → AWS ECR → ECS Deployment Flow</h1>
+
+  <div class="container">
+
+    <!-- Docker -->
+    <div class="box">
+      <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker">
+      <div class="label">Docker</div>
+    </div>
+
+    <div class="arrow"></div>
+
+    <!-- ECR -->
+    <div class="box">
+      <img src="https://cdn.worldvectorlogo.com/logos/aws-ecr.svg" alt="ECR">
+      <div class="label">AWS ECR</div>
+    </div>
+
+    <div class="arrow"></div>
+
+    <!-- ECS -->
+    <div class="box">
+      <img src="https://cdn.worldvectorlogo.com/logos/aws-ecs.svg" alt="ECS">
+      <div class="label">AWS ECS</div>
+    </div>
+
+  </div>
+
+  <div class="message">
+    🚀 Hello, I am Docker running in ECS!
+  </div>
+
+</body>
+</html>
